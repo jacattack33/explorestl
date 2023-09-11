@@ -21,12 +21,9 @@ namespace explorestl
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            
-
             var configuration = builder.Configuration;
 
             var connectionString = configuration["ConnectionStrings:DefaultConnection"];
-            //var connectionString = "server=localhost;user id=explorestl;password=dontexplorestl;database=explorestl;";
 
             builder.Services.AddDbContext<SightDbContext>(options =>
                 options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 29))));
