@@ -1,0 +1,66 @@
+﻿@{
+}
+
+
+@model List<explorestl.Models.Review>
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Review Title</th>
+            <th>Review Comment</th>
+            <th>Add Comment</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model is not null)
+        {
+            @foreach (Review r in Model)
+            {
+                <tr>
+                    <td>
+                        @ViewBag.DisplayName
+                    </td>
+                    <td>
+                        @ViewBag.ReviewTitle
+                    </td>
+                    <td>
+                        @ViewBag.ReviewComment
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample-@r.ReviewId" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            Add Comment
+                        </a>
+                    </td>
+                </tr>
+                <tr class="collapse" id="collapseExample-@ViewBag.ReviewId">
+                    <td colspan="4">
+                        <form asp-controller="Review" asp-action="ProcessAddReviewForm" method="post">
+                            <input type="hidden" asp-for="@r.ReviewId" value="ReviewId" />
+
+                            <div class="form-group">
+                                <label asp-for="@r.DisplayName">Username</label>
+                                <input asp-for="@r.DisplayName" class="form-control" />
+                                <span asp-validation-for="@r.DisplayName"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="@r.ReviewComment">Comment</label>
+                                <input asp-for="@r.ReviewComment" class="form-control" />
+                                <span asp-validation-for="@r.ReviewComment"></span>
+                            </div>
+
+                            <input type="submit" value="Add Comment" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

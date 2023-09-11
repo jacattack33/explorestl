@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<!-- -->
+@using Microsoft.AspNetCore.Identity
+
+<h2>@ViewData["Title"]</h2>
+@model explorestl.ViewModels.AddReviewViewModel
+
+<h1>Tell us your Weirdest Reviews</h1>
+<button class="collapsible">Add Review</button>
+
+<div class="collapsible-content">
+    <div class="card">
+        <form asp-controller="Review" asp-action="ProcessAddReviewForm" method="post">
+            <div class="form-group">
+                <label asp-for="DisplayName">Username:</label>
+                <input asp-for="DisplayName" class="form-control" />
+                <span asp-validation-for="DisplayName"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReviewTitle">Review Title:</label>
+                <input asp-for="ReviewTitle" class="form-control" />
+                <span asp-validation-for="ReviewTitle"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReviewComment">Review Comment:</label>
+                <input asp-for="ReviewComment" class="form-control" />
+                <span asp-validation-for="ReviewComment"></span>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary"/>
+        </form>
+    </div>
+</div>
+
+<style>
+    .collapsible {
+        background-color: #777;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+    }
+
+    .collapsible-content {
+        padding: 0 18px;
+        display: none;
+        overflow: hidden;
+        background-color: #f1f1f1;
+    }
+</style>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+</script>
