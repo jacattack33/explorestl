@@ -1,5 +1,6 @@
 ## Custom removes
-.\explorestl\appsettings.json
+explorestl/appsettings.json
+explorestl/appsettings.*.json
 
 
 ## Ignore Visual Studio temporary files, build results, and
