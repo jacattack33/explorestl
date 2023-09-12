@@ -8,7 +8,7 @@ namespace explorestl.Models
     public class Entity
     {
         //I'm not sure if we NEED an I.D. field for each entity, but I made one just in case.
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         //static private int nextId = 1;
 
         public string Name { get; set; }
@@ -19,12 +19,12 @@ namespace explorestl.Models
 
         public Entity()
         {
-            //Id = nextId;
-            //nextId++;
+            Id = Guid.NewGuid();
         }
 
         public Entity(string name, string city, string state, string description, string type) : this()
         {
+            Id = Guid.NewGuid();
             Name = name;
             City = city;
             State = state;
