@@ -42,6 +42,7 @@ namespace explorestl.Controllers
                 List<string> selectedTypes = new List<string>();
                 foreach (string entityName in type)
                 {
+                    //uppercase first letter to conform to DB
                     string cleanName = $"{entityName[0].ToString().ToUpper()}{entityName.Substring(1)}";
                     selectedTypes.Add(cleanName);
                 }
