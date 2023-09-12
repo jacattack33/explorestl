@@ -23,33 +23,17 @@
                     <input type="checkbox" name="type" id="bigfoot" value="bigfoot" />
                     <label for="bigfoot">Bigfoot</label>
                 </div>
-            </p>
-            <h2 class="display-6">Where are we looking?</h2>
-            <p>
-                <div class="form-check radiooptions">
-                    <input type="radio" name="searchType" id="city" value="city" />
-                    <label for="city">City</label>
-                    <input type="radio" name="searchType" id="state" value="state" />
-                    <label for="state">State</label>
-                    <input type="radio" name="searchType" id="description" value="description" />
-                    <label for="description">Description</label>
+                <div class="wrap">
+                    <div class="search">
+                        <input type="text" name="searchTerm" id="searchTerm" class="searchTerm" placeholder="Enter search term.." />
+                        <button type="submit" value="Search" class="searchButton">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
                 </div>
-            </p>
-            <div class="wrap">
-                <div class="search">
-                    <input type="text" name="searchTerm" id="searchTerm" class="searchTerm" placeholder="Enter search term.." />
-                    <button type="submit" value="Search" class="searchButton">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-            </div>
-            <br />
-            <br />
-            <p>
-
-            </p>
-            <br/>
+                <br /><br />
                 <input type="submit" name="searchType" id="all" value="Show Me Everything!" />
+            </p>
         </form>
         <hr />
 

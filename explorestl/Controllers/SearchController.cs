@@ -26,76 +26,30 @@ namespace explorestl.Controllers
         public IActionResult Results(string searchType, string searchTerm, string[] type)
         {
             List<string> selected = new List<string>();
-            string stateCode = "";
 
+            var entityList = _context.Entities.AsQueryable();
 
-            //Checks to see if someone has clicked the button to see everything.
+            //If searching all, no need to build query
             if (searchType == "Show Me Everything!")
             {
-                entityList = _context.Entities.ToList();
+                ViewBag.entityList = entityList;
+                return View();
             }
-            //Checks to see if they selected any of the checkboxes.
-            else if (type.Length > 0)
+
+            //Search based on types
+            if (type.Length > 0)
             {
+                List<string> selectedTypes = new List<string>();
                 foreach (string entityName in type)
                 {
-                    selected.Add(entityName);
+                    string cleanName = $"{entityName[0].ToString().ToUpper()}{entityName.Substring(1)}";
+                    selectedTypes.Add(cleanName);
                 }
-
-                //Exectues if they selected checkboxes and tried to search by state with a search term.
-                if (searchType == "state" && searchTerm != null && searchTerm != "")
-                {
-                    stateCode = States.GetStateByName(searchTerm);
-
-                    entityList= (List<Entity>)_context.Entities.Where(x => stateCode == x.State);
-
-                    //entityList = EntityData.FindByColumnValueAndType(searchType, stateCode, selected);
-                }
-                //Exectutes if they selected checkboxes and search by city or description.
-                else if (searchType != null && searchTerm != null && searchTerm != "")
-                {
-                    entityList = EntityData.FindByColumnValueAndType(searchType, searchTerm, selected);
-
-                }
-                //Executes if they selected checkboxes but did not enter a search term or select a radio button.
-                else if (searchType == null && searchTerm == "" || searchTerm == null)
-                {
-                    entityList = EntityData.FindByType(selected);
-                }
-                else
-                {
-                    ViewBag.entityList = null;
-                }
-
+                entityList = entityList.Where(x => selectedTypes.Contains(x.Type));
             }
-            //Checks to see if they selected a search type and search term but no check boxes.
-            else if (type.Length == 0 && searchType != null && searchTerm != null)
-            {
-                //Exectutes if they search by state and search term only.
-                if (searchType == "state" && searchTerm != null && searchTerm != "")
-                {
-                    stateCode = States.GetStateByName(searchTerm);
-
-                    entityList = EntityData.FindByColumnAndValue(searchType, stateCode);
-                }
-                //Exectues if they search by city or description with a search term.
-                else
-                {
-                    entityList = EntityData.FindByColumnAndValue(searchType, searchTerm);
-                }
-            }
-            //Exectues if they don't select any buttons but input a search term in the search box.
-            else if (type.Length == 0 && searchType == null && searchTerm != null)
-            {
-                entityList = EntityData.FindByValue(searchTerm);
-            }
-            else
-            {
-                ViewBag.entityList = null;
-            }
-
             ViewBag.entityList = entityList;
             return View();
+
         }
     }
 }
