@@ -62,7 +62,8 @@ namespace explorestl.Controllers
                 Type = addSightingViewModel.Type,
             };
 
-            EntityData.AddNewSighting(newEntity);
+            //TODO Implement Add new sighting
+            //EntityData.AddNewSighting(newEntity);
 
             return Redirect("/Add");
             //return View(addSightingViewModel);

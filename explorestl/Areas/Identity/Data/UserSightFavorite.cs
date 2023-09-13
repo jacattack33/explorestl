@@ -4,6 +4,6 @@
     {
         public int Id { get; set; }
         public Guid UserId { get; set; }
-        public int SightId { get; set; }
+        public Guid SightId { get; set; }
     }
 }

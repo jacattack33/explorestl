@@ -59,7 +59,7 @@
                             <div>
                                 <form method="post" action="/UserSightFavorite/RemoveFavorite">
                                     <input type="hidden" name="formSightId" value="@favorite.Id" />
-                                    <input class="filter_btn" onclick="changeRemoveButton(@favorite.Id)" type="submit" value="Remove from Favorites" id="filter_btn_@(favorite.Id)" />
+                                    <input class="filter_btn" onclick="changeRemoveButton(`@favorite.Id`)" type="submit" value="Remove from Favorites" id="filter_btn_@(favorite.Id)" />
                                 </form>
                             </div>
                         </div>
