@@ -62,7 +62,7 @@
                             <br />
                             <form method="post" action="/UserSightFavorite/AddFavorite">
                                 <input type="hidden" name="formSightId" value="@entity.Id" />
-                            <input class="filter_btn" onclick="changeAddFavoritesButton(@entity.Id)" type="submit" value="Add to Favorites" id="filter_btn_@(entity.Id)" />
+                            <input class="filter_btn" onclick="changeAddFavoritesButton(`@entity.Id`)" type="submit" value="Add to Favorites" id="filter_btn_@(entity.Id)" />
                             </form>
                         }
                             

@@ -29,8 +29,7 @@ namespace explorestl.Controllers
         // add favorites to list
         public IActionResult AddFavorite(string formSightId)
         {
-            if (!int.TryParse(formSightId, out var sightId))
-                return BadRequest();
+            var sightId = Guid.Parse(formSightId);
 
             var userId = Guid.Parse(_userManager.GetUserId(User));
             var favoriteCheck = _context.UserSightFavorites
@@ -51,8 +50,7 @@ namespace explorestl.Controllers
         //remove from favorites list
         public IActionResult RemoveFavorite(string formSightId)
         {
-            if (!int.TryParse(formSightId, out var sightId))
-                return BadRequest();
+            var sightId = Guid.Parse(formSightId);
 
             var userId = Guid.Parse(_userManager.GetUserId(User));
             var userFavorite = _context.UserSightFavorites
@@ -72,7 +70,23 @@ namespace explorestl.Controllers
             return View("~/Views/UserSightFavorite/_FavoritesList.cshtml"); 
         }
 
+
         private void AddFavoritesToViewBag()
+        {
+            var usersFavorites = _context.UserSightFavorites
+               .Where(w => w.UserId == Guid.Parse(_userManager.GetUserId(User)))
+               .ToList();
+            var aggregatedFavorites = new List<Entity>();
+            foreach (var userFavorite in usersFavorites)
+            {
+                var entity = _context.Entities.Single(e => e.Id == userFavorite.SightId);
+                if (entity == null) continue;
+                aggregatedFavorites.Add(entity);
+            }
+
+            ViewBag.UserFavorites = aggregatedFavorites;
+        }
+        /*private void AddFavoritesToViewBag()
         {
             var usersFavorites = _context.UserSightFavorites
                .Where(w => w.UserId == Guid.Parse(_userManager.GetUserId(User)))
@@ -86,7 +100,7 @@ namespace explorestl.Controllers
             }
 
             ViewBag.UserFavorites = aggregatedFavorites;
-        }
+        }*/
 
     }
 }
