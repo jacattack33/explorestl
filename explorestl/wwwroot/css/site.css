@@ -31,20 +31,6 @@ body {
     min-width: 300px;
     opacity: 85%;
 }
-
-.blink2 {
-    animation: fadeIn 3s;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0.85;
-    }
-}
 /*---------------------------------*/
 
 
@@ -91,19 +77,6 @@ p.indent {
     text-indent: 30px;
 }
 
-.blink {
-    animation: fadeIn 3s;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0.85;
-    }
-}
 
 .featureList {
     text-align: center;
@@ -417,19 +390,6 @@ p.indent {
     text-indent: 30px;
 }
 
-.blink {
-    animation: fadeIn 3s;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0.85;
-    }
-}
 /*---------------------------------*/
 
 
@@ -461,19 +421,7 @@ p.indent {
     text-indent: 30px;
 }
 
-.blink {
-    animation: fadeIn 3s;
-}
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0.85;
-    }
-}
 
 .xsearch-items {
     padding-left: 0px;
