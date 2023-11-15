@@ -1,12 +1,16 @@
 ﻿@model explorestl.ViewModels.AddSightingViewModel
 @{
-    ViewData["Title"] = "Add a Sighting";
+    ViewData["Title"] = "Add an Activity";
+}
+
+@section styles{
+    <link href="@Url.Content("~/css/AddActivity.css")" rel="stylesheet" type="text/css" />
 }
 
 
 <div class="card blink2" id="genericcard">
 <form asp-controller="Home" asp-action="ProcessAddSightingForm" method="post">
-    <h1 class="display-6">Add a Sighting!</h1>
+    <h1 class="display-6">Add an activity to our datebase!</h1>
     </br>
     <div class="form-group">
         <label asp-for="Name" class="fw-bold">Name</label>
@@ -40,7 +44,7 @@
    
    
     </br>
-    <input type="submit" value="Add Sighting" />
+    <input type="submit" value="Add" />
 
 </form>
 </div>
