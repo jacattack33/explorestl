@@ -3,11 +3,8 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<div id="resultscard" class="card blink" style="border-radius: 6px;">
-    <h1 class="display-5" style="text-align: center;">Get Weird Results</h1>
-</div>
 
-<div id="resultscard" class="card blink" style="border-radius: 6px;">
+<div id="resultscard" class="card" style="border-radius: 6px;">
 <br />
 
 <!--Bootstrap Styling-->
@@ -64,6 +61,12 @@
                                 <input type="hidden" name="formSightId" value="@entity.Id" />
                             <input class="filter_btn" onclick="changeAddFavoritesButton(`@entity.Id`)" type="submit" value="Add to Favorites" id="filter_btn_@(entity.Id)" />
                             </form>
+
+                             <br />
+                            <form method="post" action="/UserSightFavorite/AddFavorite">
+                                <input type="hidden" name="formSightId" value="@entity.Id" />
+                            <input class="filter_btn" onclick="changeAddFavoritesButton(`@entity.Id`)" type="submit" value="Completed" id="filter_btn_@(entity.Id)" />
+                            </form>
                         }
                             
                             <br>
@@ -75,6 +78,6 @@
 }
 else
 {
-    <h3>No weirdness here!</h3>
+    <h3>Nothing here!</h3>
 }
 </div>
