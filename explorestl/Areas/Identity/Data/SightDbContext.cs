@@ -11,10 +11,11 @@ public class SightDbContext : IdentityDbContext<ApplicationUser, IdentityRole, s
     
     public DbSet<Review> Reviews { get; set; }
     public DbSet<UserSightFavorite> UserSightFavorites { get; set; }
-    public DbSet<Entity> Entities { get; set; }
+	public DbSet<UserCompleted> UserCompleteds { get; set; }
+	public DbSet<Entity> Entities { get; set; }
 
 
-    //  public DbSet<WeirdRating> WeirdRatings { get; set; }
+ 
 
     public SightDbContext(DbContextOptions<SightDbContext> options)
         : base(options)
