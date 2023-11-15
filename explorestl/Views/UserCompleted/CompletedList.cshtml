@@ -1,18 +1,11 @@
-﻿<div id="favoritecard" class="card blink2"> 
-    <h1 class="display-4 text-center">My Activities</h1>
+﻿<div id="card" class="card">
+    <h1 class="display-4 text-center">My Completed Activities</h1>
     <p class="text-muted text-center">
-        Here is a list of your favorited activities!
+        See things you've already done!
     </p>
-    <br/>
-    <div class="container d-flex justify-content-center">
-        <div class="smallalien"></div>
-        <div class="alien m-1"></div>
-        <div class="smallalien"></div>
-
-    </div>
-
-    <br/>
-    <br/>
+    <br />
+    <br />
+    <br />
 
     @if (ViewBag.UserFavorites != null)
     {
@@ -46,7 +39,7 @@
                             <div class="search-item-meta mb-15">
                                 <ul class="list-inline">
                                     <li>@favorite.Type - @favorite.City, @favorite.State</li>
-                                    
+
                                 </ul>
                             </div>
 
@@ -72,5 +65,5 @@
     }
 
 </div>
-    
+
 
