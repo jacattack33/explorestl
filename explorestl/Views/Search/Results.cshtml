@@ -63,9 +63,9 @@
                             </form>
 
                              <br />
-                            <form method="post" action="/UserSightFavorite/AddFavorite">
+                            <form method="post" action="/UserCompleted/AddCompleted">
                                 <input type="hidden" name="formSightId" value="@entity.Id" />
-                            <input class="filter_btn" onclick="changeAddFavoritesButton(`@entity.Id`)" type="submit" value="Completed" id="filter_btn_@(entity.Id)" />
+                            <input class="filter_btn" onclick="changeCompletedButton(`@entity.Id`)" type="submit" value="Completed" id="filter_btn2_@(entity.Id)" />
                             </form>
                         }
                             
