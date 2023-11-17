@@ -7,9 +7,9 @@
     <br />
     <br />
 
-    @if (ViewBag.UserFavorites != null)
+    @if (ViewBag.UserCompleteds != null)
     {
-        foreach (var favorite in ViewBag.UserFavorites)
+        foreach (var completed in ViewBag.UserCompleteds)
         {
             <div class="clearfix mt-40">
                 <div class="xsearch-items">
@@ -17,15 +17,15 @@
 
                         <!--Displays images for the different entities-->
                         <div class="search-item-img">
-                            @if (@favorite.Type == "Alien")
+                            @if (@completed.Type == "Alien")
                             {
                                 <img src="~/Images/alien.png" alt="alien" height="60px" width="60px">
                             }
-                            else if (@favorite.Type == "Ghost")
+                            else if (@completed.Type == "Ghost")
                             {
                                 <img src="~/Images/ghost.png" alt="ghost" height="60px" width="60px">
                             }
-                            else if (@favorite.Type == "Bigfoot")
+                            else if (@completed.Type == "Bigfoot")
                             {
                                 <img src="~/Images/foot.png" alt="feet" height="60px" width="60px">
                             }
@@ -33,26 +33,26 @@
 
                         <div class="search-item-content">
                             <!--Displays Name-->
-                            <h2 class="display-6" style="font-size: 25px">@favorite.Name</h2>
+                            <h2 class="display-6" style="font-size: 25px">@completed.Name</h2>
 
                             <!--Displays Type, City, State, Ratings/Reviews-->
                             <div class="search-item-meta mb-15">
                                 <ul class="list-inline">
-                                    <li>@favorite.Type - @favorite.City, @favorite.State</li>
+                                    <li>@completed.Type - @completed.City, @completed.State</li>
 
                                 </ul>
                             </div>
 
                             <!--Displays Description-->
                             <div>
-                                @favorite.Description
+                                @completed.Description
 
                             </div>
                             <br />
                             <div>
                                 <form method="post" action="/UserSightFavorite/RemoveFavorite">
-                                    <input type="hidden" name="formSightId" value="@favorite.Id" />
-                                    <input class="filter_btn" onclick="changeRemoveButton(`@favorite.Id`)" type="submit" value="Remove from Favorites" id="filter_btn_@(favorite.Id)" />
+                                    <input type="hidden" name="formSightId" value="@completed.Id" />
+                                    <input class="filter_btn" onclick="changeRemoveButton(`@completed.Id`)" type="submit" value="Remove from Favorites" id="filter_btn_@(completed.Id)" />
                                 </form>
                             </div>
                         </div>

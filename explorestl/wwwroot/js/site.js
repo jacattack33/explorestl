@@ -15,6 +15,12 @@ function changeAddFavoritesButton(id) {
     document.getElementById("filter_btn_" + id).style.color = 'white';
 }
 
+function changeCompletedButton(id) {
+    document.getElemntById("filter_btn_" + id).value = "Completed!";
+    document.getElementById("filter_btn_" + id).style.backgroundColor = 'red';
+    document.getElementById("filter_btn_" + id).style.color = 'white';
+}
+
 //Results Collapse Function
 var coll = document.getElementsByClassName("collapsible");
 var i;
