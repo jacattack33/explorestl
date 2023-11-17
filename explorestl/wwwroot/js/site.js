@@ -5,7 +5,6 @@
 }
 
 function changeCompletedButton(id) {
-    debugger
     document.getElementById("filter_btn2_" + id).value = "Completed!";
     document.getElementById("filter_btn2_" + id).style.backgroundColor = 'red';
     document.getElementById("filter_btn2_" + id).style.color = 'white';
