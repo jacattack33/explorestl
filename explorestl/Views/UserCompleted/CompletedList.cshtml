@@ -50,9 +50,9 @@
                             </div>
                             <br />
                             <div>
-                                <form method="post" action="/UserSightFavorite/RemoveFavorite">
+                                <form method="post" action="/UserCompleted/RemoveCompleted">
                                     <input type="hidden" name="formSightId" value="@completed.Id" />
-                                    <input class="filter_btn" onclick="changeRemoveButton(`@completed.Id`)" type="submit" value="Remove from Favorites" id="filter_btn_@(completed.Id)" />
+                                    <input class="filter_btn" onclick="changeRemoveCompletedButton(`@completed.Id`)" type="submit" value="Remove from Completed Activities" id="filter_btn_@(completed.Id)" />
                                 </form>
                             </div>
                         </div>
