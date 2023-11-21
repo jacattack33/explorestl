@@ -16,14 +16,21 @@ namespace explorestl.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 
         //added for ability to add new sightings
         public List<Entity> entityList = new List<Entity>();
 
-        public HomeController(ILogger<HomeController> logger)
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //_logger = logger;
+        //}
+        private readonly SightDbContext _context;
+
+        public HomeController(
+            SightDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -62,8 +69,10 @@ namespace explorestl.Controllers
                 Type = addSightingViewModel.Type,
             };
 
-            //TODO Implement Add new sighting
-            //EntityData.AddNewSighting(newEntity);
+           //context is db itself and specify which table putting into ie Entities
+            _context.Entities.Add(newEntity);
+            _context.SaveChanges();
+           
 
             return Redirect("/Add");
             //return View(addSightingViewModel);
