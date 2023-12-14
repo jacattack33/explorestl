@@ -43,7 +43,12 @@ namespace explorestl.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Featured()
+        {
+            return View();
+        }
+
+        public IActionResult AboutMe()
         {
             return View();
         }

@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "About Me";
+}
+
+@section styles{
+    <link href="@Url.Content("~/css/AboutMe.css")" rel="stylesheet" type="text/css" />
+}
+
+
+<div id="aboutcard" class="card blink2" style="border-radius: 6px;">
+
+    <div class="container py-5">
+        <div class="row mb-4">
+            <div class="col-lg-5">
+                <h1 class="display-4 font-weight-light">@ViewData["Title"]</h1>
+                <p class="font-italic text-muted"></p>
+            </div>
+        </div>
+        <div class="row text-center">
+        </div>
+    </div>
+</div>
+
