@@ -286,52 +286,45 @@ p.indent {
 
 .alien {
     position: center;
-    background-color: #252525;
     width: 100px;
     height: 100px;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    border-top-left-radius: 200px;
-    border-bottom-left-radius: 200px;
-    border-bottom-right-radius: 50px;
-    border-top-right-radius: 200px;
-    -webkit-box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.5);
+    background-color: #f20044;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 50px #f20044;
 }
 
-    .alien:before {
+    .alien:before,
+    .alien:after {
         content: "";
+        background-color: #f20044;
+        border-radius: 50%;
+        height: 100px;
         position: absolute;
-        width: 26px;
-        height: 26px;
-        background-color: #0b0b0b;
-        border-top-left-radius: 200px;
-        border-bottom-right-radius: 200px;
-        top: 66px;
-        left: 33px;
-        -webkit-transform: rotate(45deg);
-        transform: rotate(45deg);
+        width: 100px;
+    }
+
+    .alien:before {
+        top: -50px;
+        left: 0;
+        box-shadow: -10px -10px 50px #f20044;
     }
 
     .alien:after {
-        content: "";
-        position: absolute;
-        width: 26px;
-        height: 26px;
-        background-color: #0b0b0b;
-        border-top-left-radius: 200px;
-        border-bottom-right-radius: 200px;
-        top: 33px;
-        left: 66px;
-        -webkit-transform: rotate(-45deg);
-        transform: rotate(-45deg);
+        left: 50px;
+        top: 0;
+        box-shadow: 10px 10px 50px #f20044;
     }
 
-    .alien:hover {
-        background: radial-gradient(circle, #a2f793, #58f03e);
-        -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5), 0 0 20px 20px rgba(88, 240, 62, 0.4);
-        box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5), 0 0 20px 20px rgba(88, 240, 62, 0.4);
-    }
+.alien:hover,
+.alien:hover::before,
+.alien:hover::after {
+    background-color: hotpink;
+    box-shadow: none;
+
+}
+
+
 
 .smallalien {
     position: center;
